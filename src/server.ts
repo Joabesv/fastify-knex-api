@@ -1,9 +1,12 @@
 import fastify from 'fastify';
+import { knex } from './database/connection';
 
 const app = fastify();
 
-app.get('/', () => {
-  return 'hello man';
+app.get('/hello', async () => {
+  const tables = await knex('').select('*');
+
+  return tables;
 });
 
 app.listen({ port: 5000 }).then(() => {
