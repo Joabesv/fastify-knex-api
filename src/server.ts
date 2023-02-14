@@ -4,7 +4,7 @@ import { knex } from './database/connection';
 const app = fastify();
 
 app.get('/hello', async () => {
-  const tables = await knex('').select('*');
+  const tables = await knex('sqlite_schema').select('*');
 
   return tables;
 });
