@@ -1,5 +1,4 @@
 import fastify from 'fastify';
-import { randomUUID } from 'node:crypto';
 import { knex } from './database/connection';
 
 const app = fastify();
