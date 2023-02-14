@@ -1,5 +1,6 @@
 import fastify from 'fastify';
 import { knex } from './database/connection';
+import { config } from './models/schema/envSchema';
 
 const app = fastify();
 
@@ -12,6 +13,6 @@ app.get('/giveMeTables', async () => {
   return knex('sqlite_schema').select('*');
 });
 
-app.listen({ port: 5000 }).then(() => {
+app.listen({ port: config.PORT }).then(() => {
   console.log('pai ta de pé');
 });

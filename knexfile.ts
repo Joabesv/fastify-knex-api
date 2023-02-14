@@ -1,3 +1,3 @@
-import { config } from './src/database/connection';
+import { knexConfig } from './src/database/connection';
 
-export default config;
+export default knexConfig;
