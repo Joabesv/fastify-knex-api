@@ -1,7 +1,7 @@
 import fastify from 'fastify';
 import cookie from '@fastify/cookie';
 import { config } from './models/schema/env.schema';
-import { transactionsRoutes } from './routes/transactionRoutes';
+import { transactionsRoutes } from './routes/transaction.routes';
 
 const app = fastify();
 
