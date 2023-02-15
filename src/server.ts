@@ -1,8 +1,11 @@
 import fastify from 'fastify';
+import cookie from '@fastify/cookie';
 import { config } from './models/schema/env.schema';
 import { transactionsRoutes } from './routes/transactionRoutes';
 
 const app = fastify();
+
+app.register(cookie);
 
 app.register(transactionsRoutes, {
   prefix: 'transactions',
