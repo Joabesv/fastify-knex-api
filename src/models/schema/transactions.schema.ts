@@ -5,3 +5,7 @@ export const createTransactionBody = z.object({
   amount: z.number(),
   type: z.enum(['credit', 'debit']),
 });
+
+export const getTransactionsParamsSchema = z.object({
+  id: z.string().uuid(),
+});
