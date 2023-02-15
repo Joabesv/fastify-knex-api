@@ -1,5 +1,5 @@
 import { knex as setupKnex, Knex } from 'knex';
-import { config } from '../models/schema/envSchema';
+import { config } from '../models/schema/env.schema';
 
 export const knexConfig: Knex.Config = {
   client: 'sqlite3',
