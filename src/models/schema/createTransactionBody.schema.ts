@@ -5,5 +5,3 @@ export const createTransactionBody = z.object({
   amount: z.number(),
   type: z.enum(['credit', 'debit']),
 });
-
-export type Body = z.infer<typeof createTransactionBody>;
