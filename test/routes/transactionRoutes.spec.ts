@@ -11,16 +11,35 @@ describe('Transactions tests', () => {
     await app.close();
   });
 
-  it('should create a new transaction', async () => {
-    await request(app.server)
+  it('should be able to create a new transaction', async () => {
+    const response = await request(app.server).post('/transactions').send({
+      title: 'new test transaction',
+      amount: 5000,
+      type: 'credit',
+    });
+
+    expect(response.statusCode).toBe(201);
+  });
+
+  it('should be able to list all transactions', async () => {
+    const createTransactionResponse = await request(app.server)
       .post('/transactions')
       .send({
         title: 'new test transaction',
         amount: 5000,
         type: 'credit',
-      })
-      .expect(201);
+      });
 
-    // expect(response.statusCode).toBe(201);
+    const cookies = createTransactionResponse.get('Set-Cookie');
+
+    const listTransactionsResponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies);
+    expect(listTransactionsResponse.body.transactions).toStrictEqual([
+      expect.objectContaining({
+        title: 'new test transaction',
+        amount: 5000,
+      }),
+    ]);
   });
 });

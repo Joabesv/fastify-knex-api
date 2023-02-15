@@ -45,7 +45,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     },
   );
 
-  app.post('/', { preHandler: [checkSessionId] }, async (request, reply) => {
+  app.post('/', async (request, reply) => {
     const { title, amount, type } = createTransactionBody.parse(request.body);
 
     let sessionId = request.cookies.sessionId;
@@ -53,7 +53,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
     if (!sessionId) {
       sessionId = randomUUID();
 
-      reply.cookie('sessionId', sessionId, {
+      reply.setCookie('sessionId', sessionId, {
         path: '/',
         maxAge: 1000 * 60 * 60 * 24 * 7, // cookie is valid for 7 days
       });
