@@ -104,5 +104,4 @@ dist
 .tern-port   
 
 .vscode
-src/database/db/app.db
-src/database/db/test.db
+src/database/db/*.db
