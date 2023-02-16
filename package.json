@@ -2,7 +2,10 @@
   "name": "fastify-knex-api",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "dist/server.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "start": "tsx src/server.ts",
     "start:dev": "tsx watch src/server.ts",
@@ -28,6 +31,7 @@
     "@vitest/coverage-c8": "^0.28.5",
     "@vitest/ui": "^0.28.5",
     "eslint": "^8.34.0",
+    "sqlite3": "^5.1.4",
     "supertest": "^6.3.3",
     "tsup": "^6.6.3",
     "tsx": "^3.12.3",
@@ -39,7 +43,7 @@
     "dotenv": "^16.0.3",
     "fastify": "^4.13.0",
     "knex": "^2.4.2",
-    "sqlite3": "^5.1.4",
+    "pg": "^8.9.0",
     "zod": "^3.20.6"
   }
 }
